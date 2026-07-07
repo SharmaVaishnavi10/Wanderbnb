@@ -40,12 +40,18 @@ app.get("/testListing", async (req, res) => {
 
 });
 
+//Index route to display all listings
 app.get("/listings", async (req,res) => {
     const allListings = await Listing.find({});
    res.render("listings/index.ejs", { allListings });
-//    console.log("All listings retrieved and rendered.");
 });
 
+//Show route to display a specific listing
+app.get("/listings/:id", async (req,res) => {
+    let {id} = req.params;
+    const listing = await Listing.findById(id);
+    res.render("listings/show.ejs", { listing });
+})
 app.listen(8080,() => {
     console.log("connected to server");
 });
