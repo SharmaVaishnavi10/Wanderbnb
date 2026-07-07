@@ -8,10 +8,15 @@ const listingSchema = new Schema({
     },
     description: String,
     image: {
+    filename: {
         type: String,
-        default: "https://unsplash.com/photos/orange-robot-character-with-a-pink-flower-xFmbzYtabOY",
-        set: (v) => v === "" ? "https://unsplash.com/photos/orange-robot-character-with-a-pink-flower-xFmbzYtabOY": v,
+        default: "listingimage",
     },
+    url: {
+        type: String,
+        default: "https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?auto=format&fit=crop&w=800&q=60",
+    },
+},
     price:Number,
     location: String,
     country: String,
